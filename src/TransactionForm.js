@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-function TransactionForm({onAddTransaction, onDeleteTransaction}){
+function TransactionForm({onAddTransaction}){
 
 const [description, setDescription] =useState("");
 const [amount, setAmount] = useState("");

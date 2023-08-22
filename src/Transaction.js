@@ -30,11 +30,11 @@ function Transaction(){
 
     function handleDeleteTransaction(deletedTransaction) {
         const updatedTransactions = transactions.filter(
-            (transaction) => transaction.id !==deletedTransaction.id
-          );
+            (transaction) => {
+                return transaction.id !==deletedTransaction.id});
           setTransactions(updatedTransactions);
-
       }
+      
 
 
     return(

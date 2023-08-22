@@ -97,20 +97,6 @@
       "category": "Food",
       "amount": "3000",
       "id": 14
-    },
-    {
-      "date": "2023-08-22",
-      "description": "gift from a pal",
-      "amount": 3456,
-      "category": "Gift",
-      "id": 15
-    },
-    {
-      "date": "2023-08-22",
-      "description": "Usumbulanga",
-      "amount": 86758,
-      "category": "Income",
-      "id": 16
     }
   ]
 }

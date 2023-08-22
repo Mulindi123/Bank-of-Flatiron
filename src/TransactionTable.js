@@ -6,7 +6,7 @@ function TransactionTable({transactions, searchTerm, setSearchTerm, onDeleteTran
   );
   function handleDeleteClick(transaction){
 
-    fetch(`http://localhost:3000/items/${transaction.id}`, {
+    fetch(`http://localhost:3000/transactions/${transaction.id}`, {
           method: "DELETE",
         })
           .then(() => onDeleteTransaction(transaction))
@@ -25,6 +25,7 @@ function TransactionTable({transactions, searchTerm, setSearchTerm, onDeleteTran
                      <th>Description</th>
                      <th>Amount</th>
                      <th>Category</th>
+                     <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
