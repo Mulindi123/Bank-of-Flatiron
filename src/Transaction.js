@@ -8,6 +8,7 @@ function Transaction(){
 
     const [transactions, setTransactions] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
+    
 
 
     function addTransaction(transaction){
@@ -27,14 +28,23 @@ function Transaction(){
 
     }, []);
 
+    function handleDeleteTransaction(deletedTransaction) {
+        const updatedTransactions = transactions.filter(
+            (transaction) => transaction.id !==deletedTransaction.id
+          );
+          setTransactions(updatedTransactions);
 
+      }
 
 
     return(
         <div>
             <TransactionForm onAddTransaction={addTransaction} />
-           <TransactionTable  transactions={transactions} searchTerm={searchTerm} 
-                             setSearchTerm={setSearchTerm} />
+           <TransactionTable transactions={transactions} 
+                             searchTerm={searchTerm} 
+                             setSearchTerm={setSearchTerm} 
+                             onDeleteTransaction={handleDeleteTransaction} 
+                             />
        
         </div>
     )

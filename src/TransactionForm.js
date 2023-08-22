@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-function TransactionForm({onAddTransaction, index}){
+function TransactionForm({onAddTransaction, onDeleteTransaction}){
 
 const [description, setDescription] =useState("");
 const [amount, setAmount] = useState("");
@@ -14,7 +14,7 @@ function handleSubmit(event){
         amount:parseFloat(amount),
         category: category
     };
-    event.target.reset()
+    
 
     fetch("http://localhost:3000/transactions",{
         method: "POST",
@@ -34,13 +34,13 @@ function handleSubmit(event){
     setDescription('');
     setAmount('');
     setCategory('');
-    
+
 
 };
 
 
     return(
-        <div key={index}>
+        <div >
             <h2>Add New Transaction</h2>
             <form onSubmit={handleSubmit}>
                 <>

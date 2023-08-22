@@ -1,10 +1,17 @@
 
-function TransactionTable({transactions, searchTerm, setSearchTerm}){
+function TransactionTable({transactions, searchTerm, setSearchTerm, onDeleteTransaction}){
 
     const filteredTransactions = transactions.filter((transaction) =>
     transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  function handleDeleteClick(transaction){
 
+    fetch(`http://localhost:3000/items/${transaction.id}`, {
+          method: "DELETE",
+        })
+          .then(() => onDeleteTransaction(transaction))
+          .catch( error=>console.log("Error deleting transaction", error))
+}
 
     return(
         <div className="table-container">
@@ -27,6 +34,9 @@ function TransactionTable({transactions, searchTerm, setSearchTerm}){
                         <td>{transaction.description}</td>
                         <td>{transaction.amount}</td>
                         <td>{transaction.category}</td>
+                        <td>
+                        <button onClick={() => handleDeleteClick(transaction)}>Delete</button>
+                        </td>
                     </tr>
                     ))}
                 </tbody>
