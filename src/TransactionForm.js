@@ -10,11 +10,23 @@ function handleSubmit(event){
     event.preventDefault()
     const newTransaction ={
         date: new Date().toISOString().split("T")[0],
-        description,
+        description: description,
         amount:parseFloat(amount),
-        category
+        category: category
     };
-    console.log(newTransaction)
+    event.target.reset()
+
+    fetch("http://localhost:3000/transactions",{
+        method: "POST",
+        headers:{
+          "Content-Type":"application/json",
+        },
+        body: JSON.stringify(newTransaction)
+      })
+      .then(r => r.json())
+      .then(data=>console.log(data))
+      .catch(error => console.log(error))
+    //console.log(newTransaction)
 
     onAddTransaction(newTransaction)
 
