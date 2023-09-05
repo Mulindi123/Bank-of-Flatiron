@@ -20,7 +20,7 @@ function Transaction(){
         }
 
     useEffect(() => {
-        fetch("http://localhost:3000/transactions")
+        fetch("https://bank-of-flatiron-api.onrender.com/transactions")
         .then(res => res.json())
         .then(data => {
             setTransactions(data)

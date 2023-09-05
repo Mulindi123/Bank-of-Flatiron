@@ -16,7 +16,7 @@ function handleSubmit(event){
     };
     
 
-    fetch("http://localhost:3000/transactions",{
+    fetch("https://bank-of-flatiron-api.onrender.com/transactions",{
         method: "POST",
         headers:{
           "Content-Type":"application/json",

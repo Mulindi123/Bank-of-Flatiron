@@ -6,7 +6,7 @@ function TransactionTable({transactions, searchTerm, setSearchTerm, onDeleteTran
   );
   function handleDeleteClick(transaction){
 
-    fetch(`http://localhost:3000/transactions/${transaction.id}`, {
+    fetch(`https://bank-of-flatiron-api.onrender.com/transactions/${transaction.id}`, {
           method: "DELETE",
         })
           .then(() => onDeleteTransaction(transaction))
